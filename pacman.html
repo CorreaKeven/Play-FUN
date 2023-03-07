@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Pacman Game</title>
+    
+    <style type="text/css">
+      @font-face {
+	    font-family: 'BDCartoonShoutRegular';
+        src: url('BD_Cartoon_Shout-webfont.ttf') format('truetype');
+	    font-weight: normal;
+	    font-style: normal;
+      }
+      #pacman {
+
+        height:800;
+        width:600;
+        margin:20px auto;
+      }
+      #shim { 
+        font-family: BDCartoonShoutRegular; 
+        position:absolute;
+        visibility:hidden
+      }
+      h1 { font-family: BDCartoonShoutRegular; text-align:center; color: azure; }
+      body { width:600px; margin:0px auto; font-family:sans-serif; background-image: url('./Assets/pictures/pacman3.jpg'); }
+      a { 
+          text-decoration:underline; 
+          font-size: 20px;
+          color: azure;
+       }
+
+      span {
+      font-size: 10px;
+      color: azure;
+      letter-spacing: 4px;
+}
+    </style>
+
+</head>
+
+<body>
+  
+  <div id="shim">shim for font face</div>
+  <h1>Pacman <br><span>by Keven Correa</span></h1>
+
+
+  <div id="pacman"></div>
+<br><br>
+ <nav class="menu" style="color: azure"> <center><a href="./embarcados.html">Voltar a página inicial</a></center></nav>
+    
+  <script src="./Assets/pacman.js"></script>
+  <script src="./Assets/modernizr-1.5.min.js"></script>
+
+  <script>
+
+    var el = document.getElementById("pacman");
+
+    if (Modernizr.canvas && Modernizr.localstorage && 
+        Modernizr.audio && (Modernizr.audio.ogg || Modernizr.audio.mp3)) {
+      window.setTimeout(function () { PACMAN.init(el, "./"); }, 0);
+    } else { 
+      el.innerHTML = "Sorry, needs a decent browser<br /><small>" + 
+        "(firefox 3.6+, Chrome 4+, Opera 10+ and Safari 4+)</small>";
+    }
+  </script>
+
+
+</body>
+</html>
